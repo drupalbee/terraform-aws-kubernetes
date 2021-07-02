@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-image-url
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: random-image-url
+  template:
+    metadata:
+      labels:
+        app: random-image-url
+    spec:
+      containers:
+        - name: random-image-url
+          image: sachirjn/random-image-url:1
