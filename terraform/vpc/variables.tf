@@ -17,3 +17,7 @@ variable "public_subnets" {
 variable "private_subnets" {
   type = list(any)
 }
+
+variable "project_name" {
+  type = string
+}

@@ -30,3 +30,7 @@ variable "node_group_on_demand_instance_types" {
 variable "node_group_on_demand_capacity_type" {
   type = string
 }
+
+variable "project_name" {
+  type = string
+}

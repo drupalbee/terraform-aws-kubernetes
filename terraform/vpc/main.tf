@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.64.0"
 
-  name = "terraform-demo"
+  name = var.project_name
   cidr = var.cidr
 
   azs             = var.azs
@@ -16,13 +16,13 @@ module "vpc" {
 
   public_subnet_tags = {
     "kubernetes.io/role/elb"                   = "1"
-    "kubernetes.io/cluster/eks-terraform-demo" = "shared"
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
     Public                                     = "1"
   }
 
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb"          = "1"
-    "kubernetes.io/cluster/eks-terraform-demo" = "shared"
+    "kubernetes.io/cluster/${var.project_name}" = "shared"
     Private                                    = "1"
   }
 
